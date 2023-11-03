@@ -34,6 +34,8 @@ foreach (var control in IterateControls(Controls))
 ```
 
 [![list all controls][1]][1]
+
+*An additional extension indents the output by depth see [Repo](https://github.com/IVSoftware/iterate-controls-of-type.git).*
 ___
 
 Your question is how about getting just the `DataGridView` controls, so specify `OfType()`
@@ -50,5 +52,5 @@ foreach (var control in IterateControls(Controls).OfType<DataGridView>())
 [![data grid view controls][2]][2]
 
 
-  [1]: https://i.stack.imgur.com/LZtVA.png
+  [1]: https://i.stack.imgur.com/plMjo.png
   [2]: https://i.stack.imgur.com/l2K6t.png
