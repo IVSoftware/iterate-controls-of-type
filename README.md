@@ -32,8 +32,8 @@ foreach (var control in IterateControls(Controls))
             control.Name);
 }
 ```
-[![all controls list][1]][1]
 
+[![list all controls][1]][1]
 ___
 
 Your question is how about getting just the `DataGridView` controls, so specify `OfType()`
@@ -50,5 +50,5 @@ foreach (var control in IterateControls(Controls).OfType<DataGridView>())
 [![data grid view controls][2]][2]
 
 
-  [1]: https://i.stack.imgur.com/Fd8ML.png
+  [1]: https://i.stack.imgur.com/LZtVA.png
   [2]: https://i.stack.imgur.com/l2K6t.png

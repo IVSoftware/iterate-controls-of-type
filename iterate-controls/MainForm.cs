@@ -10,7 +10,7 @@ namespace iterate_controls
         {
             InitializeComponent();
             // Iterate all names
-            Debug.WriteLine("ALL CONTROLS");
+            Debug.WriteLine("\n\nALL CONTROLS");
             foreach (var control in IterateControls(Controls))
             {
                 Debug.WriteLine(
