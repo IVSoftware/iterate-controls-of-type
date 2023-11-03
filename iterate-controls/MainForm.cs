@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace iterate_controls
 {
@@ -8,19 +9,31 @@ namespace iterate_controls
         public MainForm()
         {
             InitializeComponent();
-            IterateControls();
-        }
-        void IterateControls()
-        {
-            foreach (Control control in Controls) 
+            // Iterate all names
+            Debug.WriteLine("ALL CONTROLS");
+            foreach (var control in IterateControls(Controls))
             {
-                localIterateControls(control.Controls);
+                Debug.WriteLine(
+                    string.IsNullOrWhiteSpace(control.Name) ?
+                        $"Unnamed {control.GetType().Name}"  :
+                        control.Name);
             }
-            void localIterateControls(Control.ControlCollection controls)
+
+            // Iterate DataGridView only
+            Debug.WriteLine("\nDATA GRID VIEW CONTROLS");
+            foreach (var control in IterateControls(Controls).OfType<DataGridView>())
             {
-                foreach (Control child in controls)
-                {
-                    localIterateControls(child.Controls);
+                Debug.WriteLine(control.Name);
+            }
+        }
+        IEnumerable<Control> IterateControls(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls) 
+            {
+                yield return control;
+                foreach (Control child in IterateControls(control.Controls))
+                { 
+                    yield return child;
                 }
             }
         }
